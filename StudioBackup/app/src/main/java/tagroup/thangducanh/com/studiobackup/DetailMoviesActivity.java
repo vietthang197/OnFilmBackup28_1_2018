@@ -28,6 +28,8 @@ public class DetailMoviesActivity extends AppCompatActivity {
     private ImageView imgPhim,imgPhim2;
     private TextView txtTenPhim;
     private Button btnXem;
+
+    private TextView txtNamThoiluongphim,txtQuocgia,txtDophangiai,txtDaodien,txtDienvien,txtNoidung;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class DetailMoviesActivity extends AppCompatActivity {
 
     }
 
-    private void initView(Phim p) {
+    private void initView(final PhimDetails p) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -56,17 +58,29 @@ public class DetailMoviesActivity extends AppCompatActivity {
         txtTenPhim = findViewById(R.id.txtTenPhim);
         btnXem = findViewById(R.id.btnXem);
 
+        txtNamThoiluongphim = findViewById(R.id.txtNamThoiluongphim);
+        txtQuocgia = findViewById(R.id.txtQuocgia);
+        txtDophangiai = findViewById(R.id.txtDophangiai);
+        txtDaodien = findViewById(R.id.txtDaodien);
+        txtDienvien = findViewById(R.id.txtDienvien);
+        txtNoidung = findViewById(R.id.txtNoidung);
 
-        Picasso.with(this).load(p.getLink_image_phim()).into(imgPhim);
-        Picasso.with(this).load(p.getLink_image_phim()).into(imgPhim2);
-        txtTenPhim.setText(p.getTenphim());
 
-        final Phim  p_const = p;
+        Picasso.with(this).load(p.get$iframe()).into(imgPhim);
+        Picasso.with(this).load(p.get$iframe()).into(imgPhim2);
+        txtTenPhim.setText(p.get$tenphim());
+        txtNamThoiluongphim.setText("Năm : "+p.get$namsx()+", Thời gian : "+p.get$thoiluongphim());
+        txtQuocgia.setText("Quốc gia : "+p.get$quocgia());
+        txtDophangiai.setText("Độ phân giải : "+p.get$dophangiai());
+        txtDaodien.setText(p.get$daodien());
+        txtDienvien.setText(p.get$dienvien());
+        txtNoidung.setText(p.get$noidung());
+
         btnXem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailMoviesActivity.this,WatchMoviesActivity.class);
-                intent.putExtra("link_phim",p_const.getLink());
+                intent.putExtra("link_phim",p.get$link());
                 startActivity(intent);
             }
         });
@@ -84,11 +98,89 @@ public class DetailMoviesActivity extends AppCompatActivity {
             try {
                 JSONArray mang = new JSONArray(s);
                 JSONObject phims = mang.getJSONObject(0);
-                Phim p = new Phim(phims.getInt("id"),phims.getString("theloai"),phims.getString("link"),phims.getString("tenphim"),phims.getString("iframe"));
+                PhimDetails p = new PhimDetails(phims.getInt("id"),phims.getString("theloai"),phims.getString("link"),phims.getString("tenphim"),phims.getString("iframe"),phims.getInt("namsx"),phims.getString("thoiluongphim"),phims.getString("quocgia"),phims.getString("dophangiai"),phims.getString("daodien"),phims.getString("dienvien"),phims.getString("noidung"));
                 initView(p);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    class PhimDetails{
+        int $id;
+        String $theloai;
+        String $link;
+        String $tenphim;
+        String $iframe;
+        int $namsx;
+        String $thoiluongphim;
+        String $quocgia;
+        String $dophangiai;
+        String $daodien;
+        String $dienvien;
+        String $noidung;
+
+        public PhimDetails(int $id, String $theloai, String $link, String $tenphim, String $iframe, int $namsx, String $thoiluongphim, String $quocgia, String $dophangiai, String $daodien, String $dienvien, String $noidung) {
+            this.$id = $id;
+            this.$theloai = $theloai;
+            this.$link = $link;
+            this.$tenphim = $tenphim;
+            this.$iframe = $iframe;
+            this.$namsx = $namsx;
+            this.$thoiluongphim = $thoiluongphim;
+            this.$quocgia = $quocgia;
+            this.$dophangiai = $dophangiai;
+            this.$daodien = $daodien;
+            this.$dienvien = $dienvien;
+            this.$noidung = $noidung;
+        }
+
+        public int get$id() {
+            return $id;
+        }
+
+        public String get$theloai() {
+            return $theloai;
+        }
+
+        public String get$link() {
+            return $link;
+        }
+
+        public String get$tenphim() {
+            return $tenphim;
+        }
+
+        public String get$iframe() {
+            return $iframe;
+        }
+
+        public int get$namsx() {
+            return $namsx;
+        }
+
+        public String get$thoiluongphim() {
+            return $thoiluongphim;
+        }
+
+        public String get$quocgia() {
+            return $quocgia;
+        }
+
+        public String get$dophangiai() {
+            return $dophangiai;
+        }
+
+        public String get$daodien() {
+            return $daodien;
+        }
+
+        public String get$dienvien() {
+            return $dienvien;
+        }
+
+        public String get$noidung() {
+            return $noidung;
         }
     }
 

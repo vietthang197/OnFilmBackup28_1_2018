@@ -60,28 +60,31 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textColor="#FFFFFF"
-                    android:text="Kingsman 2: Đại bàng trở về"/>
+                    android:text="error"/>
                 <TextView
+                    android:id="@+id/txtNamThoiluongphim"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
                     android:textColor="#9E9E9E"
-                    android:text="Năm : 2017, Thời gian : 140 phút"/>
+                    android:text="error"/>
                 <TextView
+                    android:id="@+id/txtQuocgia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
                     android:textColor="#9E9E9E"
-                    android:text="Quốc gia : Hàn Quốc"/>
+                    android:text="error"/>
                 <TextView
+                    android:id="@+id/txtDophangiai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
                     android:textColor="#9E9E9E"
-                    android:text="Độ phân giải : HD"/>
+                    android:text="error"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -128,14 +131,15 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textColor="#FFFFFF"
-                android:text="Đạo diên:"/>
+                android:text="Đạo diễn:"/>
             <TextView
+                android:id="@+id/txtDaodien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#9E9E9E"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
-                android:text="Kim Jong Un, Master, Fiora, yasssuo, fizz, master"/>
+                android:text="error"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -145,12 +149,13 @@
                 android:textColor="#FFFFFF"
                 android:text="Diễn viên :"/>
             <TextView
+                android:id="@+id/txtDienvien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="#9E9E9E"
                 android:textSize="14sp"
-                android:text="Kim Jong Un, Master, Fiora, yasssuo, fizz, master"/>
+                android:text="error"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -160,12 +165,14 @@
                 android:textColor="#FFFFFF"
                 android:text="Nội dung:"/>
             <TextView
+                android:id="@+id/txtNoidung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="#9E9E9E"
                 android:textSize="14sp"
-                android:text="Kể về một chuyến đi dài vô tận"/>
+                android:text="error"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
